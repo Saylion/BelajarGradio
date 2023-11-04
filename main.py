@@ -29,7 +29,7 @@ if __name__ == '__main__':
           input_file = gr.UploadButton('Upload', file_types=['image'], variant='primary')
           input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file, image_input])
 
-          generate_btn = gr.Button("Generate", variant='primary')
+         # generate_btn = gr.Button("Generate", variant='primary')
           
           '''
           show_file_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
