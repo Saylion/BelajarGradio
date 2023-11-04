@@ -36,7 +36,6 @@ if __name__ == '__main__':
     gr.Label('This is my first Gradio', show_label=False)
     with gr.Accordion('Main Option'):
       with gr.Row():
-        #image_input = gr.File(label="Image")
         with gr.Column() as file_upload_col:
           local_file = gr.File(label='Video file')
           input_file = gr.UploadButton('Upload', file_types=['video'], variant='primary')
