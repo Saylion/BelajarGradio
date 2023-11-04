@@ -1,4 +1,16 @@
 import gradio as gr
+from argparse import ArgumentParser
+
+if __name__ == '__main__':
+  parser = ArgumentParser(description='Hello World', add_help=True)
+  parser.add_argument("--share", action="store_true", dest="share_enabled", default=False, help="Enable sharing")
+  parser.add_argument("--listen", action="store_true", default=False, help="Make the WebUI reachable from your local network.")
+  parser.add_argument('--listen-host', type=str, help="The hostname server will use.")
+  parser.add_argument('--listen-port', type=int, help="The listening port that the server will use.")
+  args = parser.parse_args()
+
+  with gr.Blocks(title='Hello World') as app:
+      gr.Label('This is my first Gradio', show_label=False)
 
 app.launch(
   share=args.share_enabled,
