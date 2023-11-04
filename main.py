@@ -23,7 +23,7 @@ if __name__ == '__main__':
         with gr.Column() as test:
           test_file = gr.File(label='image file')
           input_file = gr.UploadButton('Upload', file_types=['image'], variant='primary')
-          input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file, input])
+          input_file.upload(process_file_upload, inputs=[input_file], outputs=[test_file, input])
           '''
         with gr.Column(visible=False) as file_upload_col:
           local_file = gr.File(label='Audio file')
