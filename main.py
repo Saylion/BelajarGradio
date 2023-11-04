@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def video_splitting(local_file, progress=gr.Progress()):
   input_video = local_file
-  output_dir = os.path.join(BASE_DIR, local_file)
+  output_dir = BASE_DIR
 
   subclip_start_times = [0, 30, 60]
   subclip_end_times = [30, 60, 90]
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         with gr.Column() as file_upload_col:
           local_file = gr.File(label='Video file')
           input_file = gr.UploadButton('Upload', file_types=['video'], variant='primary')
-          input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file])
+          input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file, local_file])
 
         with gr.Row():  
           generate_btn = gr.Button("Generate", variant='primary')
