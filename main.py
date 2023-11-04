@@ -47,7 +47,7 @@ if __name__ == '__main__':
           hasil = gr.Video(label='hasil')
         generate_btn.click(video_splitting, inputs=[local_file], output=[hasil])
           
-          '''
+'''
           show_file_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
           show_yt_link_button.click(swap_visibility, outputs=[yt_link_col, file_upload_col, song_input, local_file])
           '''
