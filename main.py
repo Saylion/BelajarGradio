@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def video_splitting(local_file, progress=gr.Progress()):
   input_video = local_file
-  output_dir = os.path.join(BASE_DIR, local_file.filename)
+  output_dir = os.path.join(BASE_DIR, local_file)
 
   subclip_start_times = [0, 30, 60]
   subclip_end_times = [30, 60, 90]
