@@ -2,6 +2,12 @@ import gradio as gr
 import urllib.request
 from argparse import ArgumentParser
 
+def swap_visibility():
+  return gr.update(visible=True), gr.update(visible=False), gr.update(value=''), gr.update(value=none)
+
+def process_file_upload(file):
+  return file.name, gr.update(value=file,name)
+
 if __name__ == '__main__':
   parser = ArgumentParser(description='Hello World', add_help=True)
   parser.add_argument("--share", action="store_true", dest="share_enabled", default=False, help="Enable sharing")
