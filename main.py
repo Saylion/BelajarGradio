@@ -24,7 +24,7 @@ if __name__ == '__main__':
     with gr.Accordion('Main Option'):
       with gr.Row():
         with gr.Column() as test:
-          input_file = gr.File('Upload', file_types=['image'], variant='primary')
+          input_file = gr.input.File(label="Upload")
           '''
         with gr.Column(visible=False) as file_upload_col:
           local_file = gr.File(label='Audio file')
