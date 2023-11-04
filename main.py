@@ -1,4 +1,5 @@
 import gradio as gr
+import urllib.request
 from argparse import ArgumentParser
 
 if __name__ == '__main__':
