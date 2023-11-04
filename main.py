@@ -45,7 +45,7 @@ if __name__ == '__main__':
         with gr.Row():  
           generate_btn = gr.Button("Generate", variant='primary')
           hasil = gr.Video(label='hasil')
-        generate_btn.click(video_splitting, inputs=[local_file], output=[hasil]
+        generate_btn.click(video_splitting, inputs=[local_file], output=[hasil])
           
           '''
           show_file_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
