@@ -9,13 +9,13 @@ if __name__ == '__main__':
   parser.add_argument('--listen-host', type=str, help="The hostname server will use.")
   parser.add_argument('--listen-port', type=int, help="The listening port that the server will use.")
   args = parser.parse_args()
+  gr.queue(True)
 
   with gr.Blocks(title='Hello World') as app:
       gr.Label('This is my first Gradio', show_label=False)
 
 app.launch(
   share=args.share_enabled,
-  enable_queue=True,
   server_name=None if not args.listen else (args.listen_host or '0.0.0.0'),
   server_port=args.listen_port,
 )
