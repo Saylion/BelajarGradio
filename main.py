@@ -16,7 +16,7 @@ def video_splitting(local_file, progress=gr.Progress()):
 
   for i, (start_time, end_time) in enumerate(zip(subclip_start_times, subclip_end_times)):
     output_file = f"{output_dir}subclip_{i}.mp4"
-    ffmpege_extract_supclip(input_video, start_time, end_time, targetname=output_file)
+    ffmpege_extract_subclip(input_video, start_time, end_time, targetname=output_file)
 
 def swap_visibility():
   return gr.update(visible=True), gr.update(visible=False), gr.update(value=''), gr.update(value=None)
