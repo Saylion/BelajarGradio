@@ -23,12 +23,13 @@ if __name__ == '__main__':
     gr.Label('This is my first Gradio', show_label=False)
     with gr.Accordion('Main Option'):
       with gr.Row():
-        with gr.Column() as test:
-          input_file = gr.inputs.File(label="Upload", file_types=['image'])
-          '''
+        image_input = gr.File(label="Image")
         with gr.Column(visible=False) as file_upload_col:
           local_file = gr.File(label='Audio file')
-          song_input_file = gr.UploadButton('Upload', file_types=['audio'], variant='primary')
+          input_file = gr.UploadButton('Upload', file_types=['image'], variant='primary')
+          input_file.upload(process_file_upload, inputs[input_file], outputs[local_file, image_input])
+
+          generate_btn = gr.Button("Generate", variant='primary')
           
           
           show_file_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
