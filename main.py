@@ -1,6 +1,9 @@
 import gradio as gr
+import os
 import urllib.request
 from argparse import ArgumentParser
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def swap_visibility():
   return gr.update(visible=True), gr.update(visible=False), gr.update(value=''), gr.update(value=None)
@@ -23,7 +26,7 @@ if __name__ == '__main__':
         with gr.Column() as test:
           test_file = gr.File(label='image file')
           input_file = gr.UploadButton('Upload', file_types=['image'], variant='primary')
-          input_file.upload(process_file_upload, inputs=[input_file], outputs=[test_file])
+          input_file.upload(process_file_upload, inputs=[input_file], outputs=[test_file, BASE_DIR])
           '''
         with gr.Column(visible=False) as file_upload_col:
           local_file = gr.File(label='Audio file')
