@@ -11,7 +11,20 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   with gr.Blocks(title='Hello World') as app:
-      gr.Label('This is my first Gradio', show_label=False)
+    gr.Label('This is my first Gradio', show_label=False)
+    with gr.Accordion('Main Option'):
+      with gr.Row():
+        with gr.Column() as yt_link_col:
+          song_input = gr.Text(label='Song Input', info='Link to a song on Youtube or full path to a local file. For file upload, click button below.')
+          show_file_upload_button = gr.Button = gr.Button('Upload file instead')
+        with gr.Column(visible=False) as file_upload_col:
+          local_file = gr.File(label='Audio file')
+          song_input_file = gr.UploadButton('Upload', file_types=['audio'], variant='primary')
+          show_yt_link_button = gr.Button('Paste Youtube link/Path to local file instead')
+          song_input_file.upload(process_file_upload, inputs=[song_input_file], outputs=[local_file, song_input])
+
+          show_fle_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
+          show_yt_link_file.click(swap_visibility, outputs=[yt_link_col, file_upload_col, song_input, local_file])
 
 app.launch(
   share=args.share_enabled,
