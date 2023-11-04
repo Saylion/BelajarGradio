@@ -36,10 +36,12 @@ if __name__ == '__main__':
     gr.Label('This is my first Gradio', show_label=False)
     with gr.Accordion('Main Option'):
       with gr.Row():
+        with gr.Column(visible=False):
+          song_input = gr.File()
         with gr.Column() as file_upload_col:
-          local_file = gr.Text(label='Video file')
+          local_file = gr.File(label='Video file')
           input_file = gr.UploadButton('Upload', file_types=['video'], variant='primary')
-          input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file])
+          input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file, song_input])
 
         with gr.Row():  
           generate_btn = gr.Button("Generate", variant='primary')
