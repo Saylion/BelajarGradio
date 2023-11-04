@@ -31,10 +31,10 @@ if __name__ == '__main__':
 
           generate_btn = gr.Button("Generate", variant='primary')
           
-          
+          '''
           show_file_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
           show_yt_link_button.click(swap_visibility, outputs=[yt_link_col, file_upload_col, song_input, local_file])
-'''
+          '''
 app.launch(
   share=args.share_enabled,
   server_name=None if not args.listen else (args.listen_host or '0.0.0.0'),
