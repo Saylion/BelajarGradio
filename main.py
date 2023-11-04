@@ -3,7 +3,7 @@ import urllib.request
 from argparse import ArgumentParser
 
 def swap_visibility():
-  return gr.update(visible=True), gr.update(visible=False), gr.update(value=''), gr.update(value=none)
+  return gr.update(visible=True), gr.update(visible=False), gr.update(value=''), gr.update(value=None)
 
 def process_file_upload(file):
   return file.name, gr.update(value=file.name)
