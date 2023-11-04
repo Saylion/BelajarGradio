@@ -6,7 +6,7 @@ def swap_visibility():
   return gr.update(visible=True), gr.update(visible=False), gr.update(value=''), gr.update(value=none)
 
 def process_file_upload(file):
-  return file.name, gr.update(value=file,name)
+  return file.name, gr.update(value=file.name)
 
 if __name__ == '__main__':
   parser = ArgumentParser(description='Hello World', add_help=True)
