@@ -29,7 +29,7 @@ if __name__ == '__main__':
           show_yt_link_button = gr.Button('Paste Youtube link/Path to local file instead')
           song_input_file.upload(process_file_upload, inputs=[song_input_file], outputs=[local_file, song_input])
 
-          show_fle_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
+          show_file_upload_button.click(swap_visibility, outputs=[file_upload_col, yt_link_col, song_input, local_file])
           show_yt_link_file.click(swap_visibility, outputs=[yt_link_col, file_upload_col, song_input, local_file])
 
 app.launch(
