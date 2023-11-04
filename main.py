@@ -14,7 +14,7 @@ def video_splitting(local_file, progress=gr.Progress()):
   subclip_start_times = [0, 30, 60]
   subclip_end_times = [30, 60, 90]
 
-  for i, (start_time, end_time) in enumerate(zip(subclip_start_times, supclip_end_times)):
+  for i, (start_time, end_time) in enumerate(zip(subclip_start_times, subclip_end_times)):
     output_file = f"{output_dir}subclip_{i}.mp4"
     ffmpege_extract_supclip(input_video, start_time, end_time, targetname=output_file)
 
@@ -37,9 +37,9 @@ if __name__ == '__main__':
     with gr.Accordion('Main Option'):
       with gr.Row():
         with gr.Column() as file_upload_col:
-          local_file = gr.File(label='Video file')
+          local_file = gr.Text(label='Video file')
           input_file = gr.UploadButton('Upload', file_types=['video'], variant='primary')
-          input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file, local_file])
+          input_file.upload(process_file_upload, inputs=[input_file], outputs=[local_file])
 
         with gr.Row():  
           generate_btn = gr.Button("Generate", variant='primary')
